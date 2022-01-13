@@ -1,0 +1,22 @@
+﻿@model bool
+@{
+    ViewData["Title"] = "Съесть спаржу";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Добро пожаловать!</h1>
+    <p>Если ты съел спаржу, то нажми кнопку ниже.</p>
+</div>
+
+<form method="post">
+    <label>Введите имя</label><br>
+    <input type="text" name="name" /><br>
+    <label>Введите email</label><br>
+    <input type="text" name="email" /><br>
+    @if (Model == true)
+    {
+        @: Некорректный ввод. Повторите
+    }
+    <br>
+    <input type="submit" value="Я съел спаржу" />
+</form>

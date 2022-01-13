@@ -1,0 +1,32 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "Лента";
+}
+<h1>Лента</h1>
+
+<p>Здесь вся инфа.</p>
+
+@if (Model.Count == 0)
+{
+    @: Еще никто не ел спаржу(
+    <br>
+}
+else
+{
+    @foreach (var user in Model)
+    {
+        @user.Name; 
+        @: ел спаржу уже 
+        @user.EatCount;
+        @: раз. Последний - 
+        @user.EatDate.ToShortDateString();
+        <br>
+    }
+}
+
+<br>
+<form asp-action="ClearDb" asp-controller="Home" asp-antiforgery="true">
+    <div>
+        <input type="submit" value="Очистить всё" />
+    </div>
+</form>
